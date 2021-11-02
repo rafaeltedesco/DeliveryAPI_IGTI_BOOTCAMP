@@ -39,7 +39,6 @@ const getPurchaseById = async(req, res)=> {
   let {id} = req.params
   try {
     const purchase = await deliveryServices.getPurchaseById(id)
-    console.log(purchase)
     res.status(200).send(purchase)
   }
   catch(err){

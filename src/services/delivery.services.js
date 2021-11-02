@@ -129,7 +129,7 @@ const sortAscending = (data)=> {
 const getMostSoldProducts = async()=> {
   const sales = await getPurchases()
 
-  const deliveredSales = sales.pedidos.filter(sale=>sale.entregue)
+  const deliveredSales = sales.pedidos.filter(sale=>sale && sale.entregue)
   const mostSolds = sortAscending(countSales(deliveredSales))
   
   return mostSolds.map(sale=> `${sale.produto} - ${sale.totalVendido}`)
